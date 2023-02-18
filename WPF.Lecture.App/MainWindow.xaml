@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
-    </Grid>
+		<ListBox ItemsSource="{Binding Items}"
+				 DisplayMemberPath="Name"
+				 SelectedItem="{Binding CurrentItem, Mode=OneWay}">
+		</ListBox>
+	</Grid>
 </Window>
