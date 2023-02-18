@@ -6,4 +6,6 @@
 
 2교시 - 라이브러리 추가 및 커스텀컨트롤을 활용한 MVVM 세팅
 
+3교시 - ListBox를 CustomControl로 활용하여 내부 ItemsPanel, Template, ItemTemplate(ItemContainerStyle) 재정의하여 활용
+
 
