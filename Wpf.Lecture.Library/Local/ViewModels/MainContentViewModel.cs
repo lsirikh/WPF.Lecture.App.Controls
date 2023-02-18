@@ -6,12 +6,13 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wpf.Lecture.Library;
-public class MainWindowViewModel : INotifyPropertyChanged
+namespace Wpf.Lecture.Library.Local.ViewModels;
+public class MainContentViewModel : INotifyPropertyChanged
 {
-    public MainWindowViewModel()
+    public MainContentViewModel()
     {
-
+        Items = GetItems();
+        CurrentItem = Items[1];
     }
     public List<CompanyModel> Items { get; private set; }
 
@@ -23,21 +24,12 @@ public class MainWindowViewModel : INotifyPropertyChanged
         sources.Add(new() { Id = 2, Name = "MicroSoft" });
         sources.Add(new() { Id = 3, Name = "Tesla" });
         sources.Add(new() { Id = 4, Name = "Amazon" });
+        sources.Add(new() { Id = 5, Name = "Naver" });
+        sources.Add(new() { Id = 6, Name = "Kakao" });
+        sources.Add(new() { Id = 7, Name = "Openfingers" });
         return sources;
     }
 
-    protected void SetProperty<T>(ref T oldValue, ref T newValue,
-        [CallerMemberName] string propertyName = null)
-    {
-        PropertyChangedEventHandler? handler = PropertyChanged;
-        if (handler != null)
-        {
-            oldValue = newValue;
-            handler(this, new PropertyChangedEventArgs(propertyName));
-        }
-    }
-
-    public event PropertyChangedEventHandler? PropertyChanged;
 
     private CompanyModel _currentItem;
 
@@ -52,4 +44,18 @@ public class MainWindowViewModel : INotifyPropertyChanged
         //}
         set => SetProperty(ref _currentItem, ref value);
     }
+
+
+    protected void SetProperty<T>(ref T oldValue, ref T newValue,
+        [CallerMemberName] string propertyName = null)
+    {
+        PropertyChangedEventHandler handler = PropertyChanged;
+        if (handler != null)
+        {
+            oldValue = newValue;
+            handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
+
+    public event PropertyChangedEventHandler PropertyChanged;
 }

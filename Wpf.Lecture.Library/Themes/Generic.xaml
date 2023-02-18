@@ -6,6 +6,7 @@
 
 	<ResourceDictionary.MergedDictionaries>
 		<ResourceDictionary Source="/Wpf.Lecture.Library;Component/Themes/Views/MainContent.xaml"/>
+		<ResourceDictionary Source="/Wpf.Lecture.Library;Component/Themes/Units/CompanyList.xaml"/>
 	</ResourceDictionary.MergedDictionaries>
 
 
