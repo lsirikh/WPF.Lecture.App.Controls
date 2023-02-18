@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Wpf.Lecture.Library.Local.ViewModels;
 public class MainContentViewModel : INotifyPropertyChanged
@@ -13,7 +14,19 @@ public class MainContentViewModel : INotifyPropertyChanged
     {
         Items = GetItems();
         CurrentItem = Items[1];
+
+        CheckCommand = new RelayCommand(Check);
+        SelectionCommand1 = new RelayCommand(Selection);
     }
+
+    private void Selection()
+    {
+    }
+
+    private void Check()
+    {
+    }
+
     public List<CompanyModel> Items { get; private set; }
 
     private List<CompanyModel> GetItems()
@@ -58,4 +71,7 @@ public class MainContentViewModel : INotifyPropertyChanged
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
+
+    public ICommand CheckCommand { get; set; }
+    public ICommand SelectionCommand1 { get; set; }
 }

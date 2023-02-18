@@ -4,7 +4,7 @@
     xmlns:units="clr-namespace:Wpf.Lecture.Library.UI.Units">
 
 
-	<DataTemplate x:Key="CompanyItemTemplate">
+	<!--<DataTemplate x:Key="CompanyItemTemplate">
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto" SharedSizeGroup="COMP_ID"/>
@@ -13,12 +13,12 @@
 			<TextBlock Grid.Column="0" Margin="4 0" Text="{Binding Id}"/>
 			<TextBlock Grid.Column="1" Margin="4 0" Text="{Binding Name}"/>
 		</Grid>
-	</DataTemplate>
+	</DataTemplate>-->
 
 	<!--
 		이곳에서 리스트박스의 아이템 스타일이 완전 재정의 되어 마우스 오버나 셀렉션등의 스타일이 모두 삭제됐다.
 	-->
-	<Style x:Key="ListItemStyle" TargetType="{x:Type ListBoxItem}" >
+	<!--<Style x:Key="ListItemStyle" TargetType="{x:Type ListBoxItem}" >
 		<Setter Property="FontSize" Value="15"/>
 		<Setter Property="Background" Value="#343434"/>
 		<Setter Property="Foreground" Value="#ffffff"/>
@@ -30,7 +30,7 @@
 							Background="{TemplateBinding Background}"
 							Padding="4"
 							BorderThickness="0 0 1 1">
-						<!--<TextBlock Text="{Binding Id}"/>-->
+						--><!--<TextBlock Text="{Binding Id}"/>--><!--
 						<ContentPresenter />
 					</Border>
 					<ControlTemplate.Triggers>
@@ -44,15 +44,17 @@
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
-	</Style>
+	</Style>-->
 	
 	
 	<Style TargetType="{x:Type units:CompanyList}">
+		<Setter Property="SelectionMode" Value="Multiple"/>
 		<Setter Property="BorderBrush" Value="Blue"/>
 		<Setter Property="BorderThickness" Value="2"/>
 		<Setter Property="Margin" Value="5"/>
 		<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
-		<Setter Property="ItemContainerStyle" Value="{StaticResource ListItemStyle}"/>
+		<!-- CompanyListItem을 만들었기 때문에 삭제-->
+		<!--<Setter Property="ItemContainerStyle" Value="{StaticResource ListItemStyle}"/>-->
 		<Setter Property="ItemsPanel">
 			<Setter.Value>
 				<ItemsPanelTemplate>
@@ -67,7 +69,7 @@
 		리스트 박스 내부의 아이템의 구조를 유지하되 디자인을 재정의 할 수 있는 기능
 		ContentTemplate와 같은 기능을 한다고 볼 수 있다.(ListBox기준)
 		-->
-		<Setter Property="ItemTemplate" Value="{StaticResource CompanyItemTemplate}"/>
+		<!--<Setter Property="ItemTemplate" Value="{StaticResource CompanyItemTemplate}"/>-->
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type units:CompanyList}">
