@@ -15,18 +15,51 @@
 		</Grid>
 	</DataTemplate>
 
+	<!--
+		이곳에서 리스트박스의 아이템 스타일이 완전 재정의 되어 마우스 오버나 셀렉션등의 스타일이 모두 삭제됐다.
+	-->
+	<Style x:Key="ListItemStyle" TargetType="{x:Type ListBoxItem}" >
+		<Setter Property="FontSize" Value="15"/>
+		<Setter Property="Background" Value="#343434"/>
+		<Setter Property="Foreground" Value="#ffffff"/>
+		<Setter Property="BorderBrush" Value="#151515"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ListBoxItem}">
+					<Border BorderBrush="{TemplateBinding Background}"
+							Background="{TemplateBinding Background}"
+							Padding="4"
+							BorderThickness="0 0 1 1">
+						<!--<TextBlock Text="{Binding Id}"/>-->
+						<ContentPresenter />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Foreground" Value="SkyBlue"/>
+						</Trigger>
+						<Trigger Property="IsSelected" Value="True">
+							<Setter Property="Background" Value="Blue"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	
 	<Style TargetType="{x:Type units:CompanyList}">
 		<Setter Property="BorderBrush" Value="Blue"/>
 		<Setter Property="BorderThickness" Value="2"/>
 		<Setter Property="Margin" Value="5"/>
 		<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+		<Setter Property="ItemContainerStyle" Value="{StaticResource ListItemStyle}"/>
 		<Setter Property="ItemsPanel">
 			<Setter.Value>
 				<ItemsPanelTemplate>
 					<!--연속된 개체를 갖는 FrameworkElement를 배치시켜야 에러나지 않는다.-->
-					<!--<StackPanel Orientation="Vertical"/>-->
+					<StackPanel Orientation="Vertical"/>
 					<!--<WrapPanel Orientation="Horizontal"/>-->
-					<UniformGrid Columns="3" Rows="2"/>
+					<!--<UniformGrid Columns="3" Rows="2"/>-->
 				</ItemsPanelTemplate>
 			</Setter.Value>
 		</Setter>
