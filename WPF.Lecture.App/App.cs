@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Wpf.Lecture.Library;
 
 namespace WPF.Lecture.App;
 public class App: Application
@@ -12,7 +13,7 @@ public class App: Application
     {
         base.OnStartup(e);
 
-        MainWindow window= new ();
+        MainWindow2 window= new ();
         window.ShowDialog();
     }
 }

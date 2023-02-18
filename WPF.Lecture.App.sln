@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.Lecture.App", "WPF.Lecture.App\WPF.Lecture.App.csproj", "{5CD7B2D9-7049-4CFF-9D38-1A926D2D7CAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.Lecture.Library", "Wpf.Lecture.Library\Wpf.Lecture.Library.csproj", "{21CBEE78-EB29-4C6B-A433-52815BB4766D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5CD7B2D9-7049-4CFF-9D38-1A926D2D7CAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CD7B2D9-7049-4CFF-9D38-1A926D2D7CAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CD7B2D9-7049-4CFF-9D38-1A926D2D7CAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21CBEE78-EB29-4C6B-A433-52815BB4766D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21CBEE78-EB29-4C6B-A433-52815BB4766D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21CBEE78-EB29-4C6B-A433-52815BB4766D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21CBEE78-EB29-4C6B-A433-52815BB4766D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
