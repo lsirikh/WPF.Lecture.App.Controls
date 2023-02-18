@@ -4,28 +4,37 @@
     xmlns:units="clr-namespace:Wpf.Lecture.Library.UI.Units">
 
 
+	<DataTemplate x:Key="CompanyItemTemplate">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" SharedSizeGroup="COMP_ID"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Margin="4 0" Text="{Binding Id}"/>
+			<TextBlock Grid.Column="1" Margin="4 0" Text="{Binding Name}"/>
+		</Grid>
+	</DataTemplate>
+
 	<Style TargetType="{x:Type units:CompanyList}">
 		<Setter Property="BorderBrush" Value="Blue"/>
 		<Setter Property="BorderThickness" Value="2"/>
 		<Setter Property="Margin" Value="5"/>
+		<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+		<Setter Property="ItemsPanel">
+			<Setter.Value>
+				<ItemsPanelTemplate>
+					<!--연속된 개체를 갖는 FrameworkElement를 배치시켜야 에러나지 않는다.-->
+					<!--<StackPanel Orientation="Vertical"/>-->
+					<!--<WrapPanel Orientation="Horizontal"/>-->
+					<UniformGrid Columns="3" Rows="2"/>
+				</ItemsPanelTemplate>
+			</Setter.Value>
+		</Setter>
 		<!-- 
 		리스트 박스 내부의 아이템의 구조를 유지하되 디자인을 재정의 할 수 있는 기능
 		ContentTemplate와 같은 기능을 한다고 볼 수 있다.(ListBox기준)
 		-->
-		<Setter Property="ItemTemplate">
-			<Setter.Value>
-				<DataTemplate>
-					<Grid>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="Auto" SharedSizeGroup="COMP_ID"/>
-							<ColumnDefinition Width="*"/>
-						</Grid.ColumnDefinitions> 
-						<TextBlock Grid.Column="0" Margin="4 0" Text="{Binding Id}"/>
-						<TextBlock Grid.Column="1" Margin="4 0" Text="{Binding Name}"/>
-					</Grid>
-				</DataTemplate>
-			</Setter.Value>
-		</Setter>
+		<Setter Property="ItemTemplate" Value="{StaticResource CompanyItemTemplate}"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type units:CompanyList}">
@@ -35,18 +44,21 @@
 						<Grid>
 							<Grid.RowDefinitions>
 								<RowDefinition Height="Auto"/>
-								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="*"/>
 								<RowDefinition Height="Auto"/>
 								<RowDefinition Height="Auto"/>
 							</Grid.RowDefinitions>
 							<Border Padding="5"
 									BorderBrush="Red"
-									BorderThickness="2"
+									BorderThickness="0 0 0 2"
 									Grid.Row="0">
 								
 								<TextBlock  Text="Company List"/>
 							</Border>
-							<ItemsPresenter Grid.Row="1"/>
+							<ScrollViewer Grid.Row="1">
+								
+								<ItemsPresenter />
+							</ScrollViewer>
 							<Border 
 								Grid.Row="2"
 								BorderBrush="Red"
